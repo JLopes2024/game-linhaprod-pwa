@@ -1,20 +1,42 @@
-/* App.css */
-body { background: #0b0f19; color: #e2e8f0; font-family: 'Segoe UI', monospace; margin: 0; }
-.ihm-container { padding: 20px; max-width: 1100px; margin: auto; }
-.header-bar { background: #000; padding: 15px; border-bottom: 3px solid #38bdf8; text-align: center; }
+/* Industrial Dark Theme */
+:root {
+  --bg: #050505;
+  --panel: #121212;
+  --border: #333;
+  --accent: #00ffcc; /* Cor característica de display LED/OLED */
+  --text: #e0e0e0;
+}
 
-.dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 20px; }
+body { background: var(--bg); color: var(--text); font-family: 'Courier New', monospace; margin: 0; }
+.ihm-container { padding: 10px; max-width: 1200px; margin: auto; }
 
-.card-indicador { background: #1e293b; padding: 15px; border-radius: 8px; border: 1px solid #334155; }
-.card-falha { border: 2px solid #ef4444; box-shadow: 0 0 10px #ef4444; animation: blink 1s infinite; }
+.header-bar { 
+  background: #000; border: 1px solid var(--border); padding: 10px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;
+}
 
-@keyframes blink { 50% { opacity: 0.7; } }
+.dashboard-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-top: 15px; }
 
-input { background: #000; border: 1px solid #475569; color: #38bdf8; padding: 8px; width: 80px; }
-button { padding: 8px 15px; background: #38bdf8; border: none; cursor: pointer; font-weight: bold; margin-left: 5px; }
+.card-indicador { 
+  background: var(--panel); border: 2px solid var(--border); padding: 15px;
+  position: relative; border-radius: 4px;
+}
 
-.normas-footer { margin-top: 30px; padding: 15px; background: #000; border-top: 2px solid #38bdf8; font-size: 0.9rem; }
+/* LED Indicator Glow */
+.card-falha { border-color: #ff0000; box-shadow: inset 0 0 10px rgba(255,0,0,0.3); }
 
-.input-wrapper { display: flex; align-items: center; gap: 5px; margin-top: 5px; }
-.custom-arrows { display: flex; flex-direction: column; }
-.custom-arrows button { padding: 0 5px !important; font-size: 0.6rem !important; background: #475569 !important; }
+h4 { color: var(--accent); margin: 0 0 10px 0; font-size: 0.9rem; }
+
+.input-field { 
+  background: #000; border: 1px solid var(--accent); color: var(--accent);
+  padding: 8px; width: 60px; text-align: center; font-family: monospace;
+}
+
+.arrow-controls button { background: #222; border: 1px solid #444; color: #fff; }
+.arrow-controls button.active { background: var(--accent); color: #000; }
+
+.btn-ok { background: #1a3328; border: 1px solid #22c55e; color: #22c55e; cursor: pointer; }
+.btn-sinal { background: #222; border: 1px solid #555; color: #fff; cursor: pointer; }
+
+.normas-footer { background: #000; border: 1px solid var(--border); padding: 15px; margin-top: 20px; font-size: 0.8rem; }
