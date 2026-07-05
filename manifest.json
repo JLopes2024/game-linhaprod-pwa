@@ -1,0 +1,11 @@
+{
+  "name": "IHM Produção",
+  "short_name": "IHM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f19",
+  "theme_color": "#0b0f19",
+  "icons": [
+    { "src": "https://www.flaticon.com/free-animated-icon/line-chart_7211797?related_id=7211797", "sizes": "512x512", "type": "image/png" }
+  ]
+}
