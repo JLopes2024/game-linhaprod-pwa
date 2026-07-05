@@ -37,7 +37,6 @@ function App() {
     const timer = setInterval(() => {
       let algumaFalha = false;
       setIndicadores(prev => prev.map(ind => {
-        // Aumentei o fator de variação de 0.4 para 1.2 para oscilações mais bruscas
         const variacao = (Math.random() - 0.5) * (ind.max - ind.min) * 1.2;
         const novoValor = ind.valor + variacao;
         const falha = novoValor > ind.max || novoValor < ind.min;
@@ -87,11 +86,11 @@ function App() {
           <div key={ind.id} className={`card-indicador ${ind.valor > ind.max || ind.valor < ind.min ? 'card-falha' : ''}`}>
             <h4>{ind.label}</h4>
             
-            <div className="valor-display">
+            <div className="valor-display" style={{fontSize: '1.4rem', margin: '10px 0'}}>
               {ind.valor.toFixed(1)} <small>{ind.unit}</small>
             </div>
 
-            <div style={{ height: '80px' }}>
+            <div style={{ height: '80px', marginBottom: '15px' }}>
               <Line ref={el => chartRefs.current[i] = el} data={{ labels: Array(20).fill(''), datasets: [{ data: ind.log, borderColor: ind.cor, borderWidth: 2, pointRadius: 0 }] }} options={{ maintainAspectRatio: false, animation: { duration: 0 }, scales: { y: { min: ind.min - 5, max: ind.max + 5 } }, plugins: { legend: { display: false } } }} />
             </div>
             
