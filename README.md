@@ -1,8 +1,10 @@
 # Linha de Produção
 
-Simulador educacional de gestão da qualidade em ambiente industrial.
+**Linha de Produção** é um **PWA educacional focado em tablets** que simula decisões de controle de qualidade em uma linha de produção.
 
-O **Linha de Produção** foi desenvolvido para jovens em cursos profissionalizantes que atuam ou se preparam para atuar em linhas de produção. O objetivo do jogo é simular decisões de controle de qualidade de forma prática, permitindo que o jogador configure a máquina, acompanhe parâmetros de produção, identifique desvios e aplique correções durante o turno.
+O aplicativo foi desenvolvido para jovens em cursos profissionalizantes que atuam ou se preparam para atuar em ambientes industriais. A proposta é oferecer uma experiência prática de monitoramento, identificação de desvios e tomada de decisão em processos produtivos.
+
+Por ser um **Progressive Web App (PWA)**, o projeto é pensado para uso direto no navegador e também pode ser instalado no dispositivo, oferecendo uma experiência próxima à de um aplicativo nativo em tablets educacionais compatíveis.
 
 ## Objetivo
 
@@ -18,6 +20,39 @@ A proposta é trabalhar conceitos como:
 * consequências de configurações incorretas;
 * estabilidade operacional.
 
+## Público e dispositivo-alvo
+
+O projeto é direcionado principalmente a:
+
+* jovens em cursos profissionalizantes;
+* estudantes em formação para atuação em linhas de produção;
+* atividades educacionais e simulações em sala de aula.
+
+O uso principal é em **tablets educacionais**, por isso a interface prioriza:
+
+* botões grandes;
+* áreas de toque amplas;
+* leitura rápida;
+* contraste entre estados;
+* controles simples;
+* responsividade;
+* navegação sem necessidade de teclado físico;
+* experiência em orientação retrato ou paisagem, conforme o dispositivo.
+
+## PWA
+
+O projeto foi concebido como um **Progressive Web App**.
+
+Isso permite que, quando configurado com manifest e service worker, ele possa:
+
+* ser instalado na tela inicial do tablet;
+* abrir em modo semelhante a um aplicativo;
+* reduzir a dependência de navegação pelo navegador;
+* oferecer uma experiência mais adequada ao ambiente educacional;
+* receber recursos de funcionamento offline ou cache em versões futuras.
+
+> A disponibilidade de instalação e funcionamento offline depende da configuração do manifest, service worker e do navegador utilizado no dispositivo.
+
 ## Fluxo do jogo
 
 A partida começa com a preparação da máquina.
@@ -25,8 +60,6 @@ A partida começa com a preparação da máquina.
 O jogador define os valores iniciais dos parâmetros e decide quando ligar a linha de produção.
 
 A configuração inicial também faz parte da avaliação. É possível iniciar a máquina com parâmetros fora da faixa recomendada, mas isso gera consequências durante o jogo.
-
-Depois do início do turno, o jogador acompanha os indicadores em tempo real e precisa decidir quando uma intervenção é realmente necessária.
 
 O fluxo principal é:
 
@@ -173,7 +206,8 @@ O projeto utiliza:
 * JavaScript;
 * CSS;
 * Chart.js;
-* react-chartjs-2.
+* react-chartjs-2;
+* recursos de PWA.
 
 Não há backend ou banco de dados nesta versão.
 
@@ -203,43 +237,6 @@ src/
 └── data/
     └── parameters.js
 ```
-
-### `App.jsx`
-
-Responsável por organizar o fluxo principal da aplicação:
-
-* tela de preparação;
-* jogo;
-* resultado final.
-
-### `useProductionGame.js`
-
-Centraliza o estado e as regras da partida:
-
-* cronômetro;
-* valores dos parâmetros;
-* variações automáticas;
-* eventos operacionais;
-* pontuação;
-* sequência de acertos;
-* intervenções;
-* qualidade;
-* resultado final.
-
-### `parameters.js`
-
-Contém as configurações dos parâmetros monitorados, incluindo:
-
-* valor inicial;
-* unidade;
-* limite mínimo;
-* limite máximo;
-* passo de ajuste;
-* intensidade de variação.
-
-### Componentes
-
-Os componentes da interface foram separados por responsabilidade para facilitar manutenção e evolução do projeto.
 
 ## Executando o projeto
 
@@ -271,26 +268,35 @@ O resultado será gerado na pasta:
 dist/
 ```
 
-Essa pasta pode ser publicada em serviços de hospedagem de sites estáticos.
+Essa pasta pode ser publicada em serviços de hospedagem de aplicações estáticas.
 
-## Uso em tablet
+## Uso em tablets educacionais
 
-A interface foi projetada principalmente para uso educacional em tablets.
+A interface foi projetada prioritariamente para tablets utilizados em ambiente educacional.
 
-Os principais cuidados de interface incluem:
+Os principais cuidados de UX incluem:
 
-* botões grandes;
-* áreas de toque amplas;
-* controles simples;
-* contraste entre estados;
-* cards selecionáveis;
-* feedback imediato;
-* adaptação para telas menores.
+* componentes grandes;
+* boa área de toque;
+* baixa dependência de digitação;
+* informações resumidas;
+* feedback visual imediato;
+* responsividade;
+* uso confortável em telas intermediárias;
+* navegação simples durante atividades em sala.
+
+## Instalação como aplicativo
+
+Quando o PWA estiver configurado com `manifest.webmanifest` e service worker, o aplicativo poderá ser instalado diretamente no tablet pelo navegador compatível.
+
+Isso permite que o **Linha de Produção** seja aberto a partir da tela inicial como uma aplicação dedicada, sem necessidade de acessar manualmente a URL a cada uso.
 
 ## Possíveis evoluções
 
 O projeto pode ser expandido futuramente com:
 
+* funcionamento offline completo;
+* cache de recursos;
 * níveis de dificuldade;
 * novos cenários industriais;
 * novos parâmetros;
@@ -309,7 +315,7 @@ O projeto pode ser expandido futuramente com:
 
 MVP funcional.
 
-A versão atual já contempla:
+A versão atual contempla:
 
 * preparação da máquina;
 * configuração inicial;
@@ -320,4 +326,6 @@ A versão atual já contempla:
 * intervenções;
 * sistema de pontuação;
 * feedback de decisões;
-* tela de resultado.
+* tela de resultado;
+* interface responsiva focada em tablet.
+
